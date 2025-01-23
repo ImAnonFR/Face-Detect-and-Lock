@@ -1,38 +1,86 @@
-# Face-Detect-and-Lock
+### README.md
 
-A small project which allows to detect by camera if someone is in front of the computer. If the program does not detect anything, it will lock the computer.
+# 🔒 Face Detection Auto-Lock Script  
 
-It takes 1 photo every 5 seconds and analyzes it.
+This Python script utilizes OpenCV to detect faces using your webcam and automatically locks your PC when no face is detected. It periodically captures and analyzes webcam images every 5 seconds, ensuring that the PC remains secure when the user is not present.
 
-## Test :
-Approved and Tested on Windows Portable Computer
+---
 
-## Installation :
- - Install Python 3.7 or Higher
- - Install Pip for Python 3
+## 📋 Features
 
-### 1st Step :
+- **Real-Time Face Detection**: Uses OpenCV's Haar cascades to detect faces, eyes, and profiles.  
+- **Automatic Lock**: Locks the workstation (`LockWorkStation`) if no face is detected.  
+- **Efficient Monitoring**: Runs checks in a loop with minimal resource usage.  
 
-Git clone the repo : 
-```
-git clone https://github.com/ImAnonFR/Face-Detect-and-Lock
-```
+---
 
-### 2nd Step : 
-Go in the repo and install requirements :
-```
-cd Face-Detect-and-Lock
-pip3 install -r requirements.txt
-```
+## 🛠️ Requirements  
 
-### 3rd Step : 
-Start the script and be safe !
-```
-python3 face_detect_and_lock.py
-```
+1. **Python 3.x**  
+2. **OpenCV Library**  
+   Install via pip:  
+   ```bash
+   pip install opencv-python
+   ```
+3. **Windows OS** (Required for `LockWorkStation` functionality)  
 
-⚠ Verify your cam before ⚠
+---
 
-You can launch it with Windows for improve security and you can change the timer between picture by change the value of : ``` sleep(5) ``` at the end of the face_detect_and_lock.py
+## 📂 File Requirements  
 
-The value is in Second
+Ensure the following Haar cascade XML files are available in the same directory:  
+
+- `frontalface.xml`  
+- `eye_glasses.xml`  
+- `haarcascade_frontalface_default.xml`  
+- `profile.xml`  
+
+You can download these files from OpenCV's [GitHub repository](https://github.com/opencv/opencv/tree/master/data/haarcascades).
+
+---
+
+## 🚀 Usage
+
+1. Clone the repository and navigate to the directory.  
+2. Run the script:  
+   ```bash
+   python face_detect_and_lock.py
+   ```
+3. The script will:  
+   - Continuously monitor for faces every 5 seconds.  
+   - Lock the workstation if no face is detected.  
+
+---
+
+## ⚙️ How It Works  
+
+1. **Image Capture**: Captures an image using the webcam.  
+2. **Face Analysis**: Analyzes the image using multiple Haar cascades to detect:  
+   - Frontal faces  
+   - Eyes  
+   - Profile faces  
+3. **Lock Condition**:  
+   - If no face is detected, the script calls the `LockWorkStation` function to lock the PC.  
+   - If a face is detected, the PC remains active.  
+4. **Continuous Monitoring**: The process repeats every 5 seconds to ensure the system's security.
+
+---
+
+## 🔑 Important Notes  
+
+- **Windows-Only Script**: The script relies on the `LockWorkStation` function, available only on Windows systems.  
+- **Privacy Caution**: The webcam will capture images continuously during the script's execution. Ensure privacy considerations are addressed.  
+
+---
+
+## 🤖 Contributions  
+
+Contributions are welcome! Feel free to fork this repository and submit a pull request.  
+
+---
+
+**Developed with ❤️ and Python** 🐍  
+
+---
+
+Let me know if you'd like me to include or modify anything! 
